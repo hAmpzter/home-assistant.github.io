@@ -13,7 +13,6 @@ ha_release: 0.62
 ha_iot_class: "Local Push"
 ---
 
-
 The `bme680` sensor platform allows you to read temperature, humidity, pressure and gas resistance values of a [Bosch BME680 Environmental sensor](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf) connected via an [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet. In addition, it includes a basic air quality calculation that uses gas resistance and humidity measurements to calculate a percentage based air quality measurement.
 
 Tested devices:
@@ -111,6 +110,11 @@ aq_humidity_bias:
   required: false
   default: 25
   type: integer
+temp_offset:
+  description: "The temperature for the sensor will always be too high as it pulls heat from the components around it.  Consider adding a negative offset to ensure the sensor returns an accurate temperature. Note: This value is in celsius."
+  required: false
+  default: 0
+  type: float
 {% endconfiguration %}
 
 ## {% linkable_title Full Examples %}
@@ -139,6 +143,7 @@ sensor:
     aq_burn_in_time: 300
     aq_humidity_baseline: 40
     aq_humidity_bias: 25
+    temp_offset: -5.5
 ```
 
 ## {% linkable_title Customizing the sensor data %}
@@ -154,12 +159,16 @@ customize:
   sensor.bme680_sensor_humidity:
     icon: mdi:water
     friendly_name: Humidity
+    device_class: humidity
+    unit_of_measurement: "%"
   sensor.bme680_sensor_pressure:
     icon: mdi:gauge
     friendly_name: Pressure
   sensor.bme680_sensor_air_quality:
     icon: mdi:blur
     friendly_name: Air Quality
+    device_class: pm25
+    unit_of_measurement: "%"
 ```
 
 To create a group, add the following to your `group` section.
@@ -175,6 +184,10 @@ group:
       - sensor.bme680_sensor_pressure
       - sensor.bme680_sensor_air_quality
 ```
+
+## {% linkable_title Directions for enabling I2C interface on Hass.io %}
+
+Follow the instructions here to [enable I2C on Hass.io.](/hassio/enable_i2c/).
 
 ## {% linkable_title Directions for installing SMBus support on Raspberry Pi %}
 

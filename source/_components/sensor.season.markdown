@@ -16,11 +16,15 @@ ha_qa_scale: internal
 
 The `season` sensor will display the current astronomical or meteorological season (Spring, Summer, Autumn, Winter) based on the user's setting in the configuration file.
 
+For information on the difference between astronomical and meteorological seasons please see the link below:
+
+- [https://www.ncei.noaa.gov/news/meteorological-versus-astronomical-seasons](https://www.ncei.noaa.gov/news/meteorological-versus-astronomical-seasons)
+
 All information about how the seasons work was taken from Wikipedia:
 
- - [https://en.wikipedia.org/wiki/Season#Astronomical](https://en.wikipedia.org/wiki/Season#Astronomical)
- - [https://en.wikipedia.org/wiki/Equinox](https://en.wikipedia.org/wiki/Equinox)
- - [https://en.wikipedia.org/wiki/Solstice](https://en.wikipedia.org/wiki/Solstice)
+- [https://en.wikipedia.org/wiki/Season#Astronomical](https://en.wikipedia.org/wiki/Season#Astronomical)
+- [https://en.wikipedia.org/wiki/Equinox](https://en.wikipedia.org/wiki/Equinox)
+- [https://en.wikipedia.org/wiki/Solstice](https://en.wikipedia.org/wiki/Solstice)
 
 ## {% linkable_title Configuration %}
 
@@ -40,4 +44,3 @@ type:
   type: string
   default: astronomical
 {% endconfiguration %}
-

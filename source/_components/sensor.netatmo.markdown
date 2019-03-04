@@ -14,7 +14,8 @@ ha_iot_class: "Cloud Polling"
 
 ### {% linkable_title Basic Configuration %}
 
-The `netatmo` sensor platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) device.
+The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a 
+[Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) devices.
 
 To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your sensor.
 
@@ -64,6 +65,8 @@ modules:
           description: Noise level in dB.
         humidity:
           description: "Humidity in %."
+        health_idx:
+          description: "Air health as one of the values Healthy, Fine, Fair, Poor, Unhealthy."
         rain:
           description: Estimated rainfall for today in mm.
         sum_rain_1:
@@ -88,6 +91,8 @@ modules:
           description: Wifi status per Base station
         battery_vp:
           description: Current battery status per module.
+        battery_percent:
+          description: Percentage of battery remaining per module.
 {% endconfiguration %}
 
 ### {% linkable_title Find your modules name %}

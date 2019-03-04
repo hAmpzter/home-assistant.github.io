@@ -35,6 +35,8 @@ $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
 {"free": 203943936}
 ```
 
+If this doesn't work, try changing the `2` for `3`, if you have installed the latest verison of Glances.
+
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
 ## {% linkable_title Configuration %}
@@ -66,6 +68,24 @@ name:
   required: false
   type: string
   default: Glances
+username:
+  description: Your username for the HTTP connection to Glances.
+  required: false
+  type: string
+password:
+  description: Your password for the HTTP connection to Glances.
+  required: false
+  type: string
+ssl:
+  description: "If `true`, use SSL/TLS to connect to the Glances system."
+  required: false
+  type: boolean
+  default: false
+verify_ssl:
+  description: Verify the certification of the system.
+  required: false
+  type: boolean
+  default: true
 version:
   description: "The version of the Glances API. Supported version: `2` and `3`."
   required: false
@@ -105,6 +125,8 @@ resources:
       description: The number of threads.
     process_sleeping:
       description: The number of sleeping processes.
+    cpu_use_percent:
+      description: The used CPU in percent.
     cpu_temp:
       description: The CPU temperature (may not be available on all platforms).
     docker_active:

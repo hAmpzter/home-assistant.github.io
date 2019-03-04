@@ -33,6 +33,11 @@ The Proximity entity which is created has the following values:
   - 'unknown'
   - 'stationary'
 - `dist_to_zone`: Distance from the monitored zone (in km)
+- `unit_of_measurement`: Measurement of distance. Values are:
+  - 'km'
+  - 'm'
+  - 'mi'
+  - 'ft'
 
 To enable this component in your installation, add the following to your `configuration.yaml` file:
 
@@ -49,7 +54,7 @@ proximity:
 ```
 
 {% configuration %}
-proximity:
+
   zone:
     description: The zone to which this component is measuring the distance to. Default is the home zone.
     required: false
@@ -90,10 +95,12 @@ proximity:
     tolerance: 50
     unit_of_measurement: mi
   home3:
+    zone: home3
     devices:
       - device_tracker.iphone1
     tolerance: 50
   work:
+    zone: work
     devices:
       - device_tracker.iphone2
     tolerance: 10

@@ -47,30 +47,31 @@ resources:
 The table contains types and their argument to use in your `configuration.yaml`
 file.
 
-| Type (`type:`)      | Argument (`arg:`)         |
-| :------------------ |:--------------------------|
-| disk_use_percent    | Path, eg. `/`             |
-| disk_use            | Path, eg. `/`             |
-| disk_free           | Path, eg. `/`             |
-| memory_use_percent  |                           |
-| memory_use          |                           |
-| memory_free         |                           |
-| swap_use_percent    |                           |
-| swap_use            |                           |
-| swap_free           |                           |
-| load_1m             |                           |
-| load_5m             |                           |
-| load_15m            |                           |
-| network_in          | Interface, eg. `eth0`     |
-| network_out         | Interface, eg. `eth0`     |
-| packets_in          | Interface, eg. `eth0`     |
-| packets_out         | Interface, eg. `eth0`     |
-| ipv4_address        | Interface, eg. `eth0`     |
-| ipv6_address        | Interface, eg. `eth0`     |
-| processor_use       |                           |
-| process             | Binary, e.g., `octave-cli` |
-| last_boot           |                           |
-| since_last_boot     |                           |
+| Type (`type:`)         | Argument (`arg:`)         |
+| :--------------------- |:--------------------------|
+| disk_use_percent       | Path, e.g., `/`           |
+| disk_use               | Path, e.g., `/`           |
+| disk_free              | Path, e.g., `/`           |
+| memory_use_percent     |                           |
+| memory_use             |                           |
+| memory_free            |                           |
+| swap_use_percent       |                           |
+| swap_use               |                           |
+| swap_free              |                           |
+| load_1m                |                           |
+| load_5m                |                           |
+| load_15m               |                           |
+| network_in             | Interface, e.g., `eth0`   |
+| network_out            | Interface, e.g., `eth0`   |
+| throughput_network_in  | Interface, e.g., `eth0`   |
+| throughput_network_out | Interface, e.g., `eth0`   |
+| packets_in             | Interface, e.g., `eth0`   |
+| packets_out            | Interface, e.g., `eth0`   |
+| ipv4_address           | Interface, e.g., `eth0`   |
+| ipv6_address           | Interface, e.g., `eth0`   |
+| processor_use          |                           |
+| process                | Binary, e.g., `octave-cli` |
+| last_boot              |                           |
 
 ## {% linkable_title Linux specific %}
 
@@ -78,7 +79,7 @@ To retrieve all available network interfaces on a Linux System, execute the
 `ifconfig` command.
 
 ```bash
-$ ifconfig -a | sed 's/[ \t].*//;/^$/d'
+ifconfig -a | sed 's/[ \t].*//;/^$/d'
 ```
 
 ## {% linkable_title Windows specific %}
